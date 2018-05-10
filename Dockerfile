@@ -9,6 +9,8 @@ RUN apk update && apk add \
         libc-dev \
         linux-headers \
         pcre-dev \
+        tzdata \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime \
     && pip install --no-cache-dir uWSGI \
     && rm -rf /tmp/*
 
@@ -20,6 +22,3 @@ RUN apk add --no-cache --virtual .build-deps mariadb-dev \
         gcc \
         libc-dev \
         linux-headers \
-
-RUN apk add -U tzdata \
-   && ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
