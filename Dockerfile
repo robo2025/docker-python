@@ -15,7 +15,7 @@ RUN apk update && apk add \
 RUN apk add --no-cache --virtual .build-deps mariadb-dev \
     && pip install mysqlclient \
     && apk add --virtual .runtime-deps mariadb-client-libs \
-    && apk del .build-deps
+    && apk del .build-deps \
     && apk del \
         gcc \
         libc-dev \
